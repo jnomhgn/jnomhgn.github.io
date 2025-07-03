@@ -11,6 +11,7 @@ library(shiny)
 library(bslib)
 library(DT)
 library(showtext)
+library(curl)
 
 
 font_add_google(name = "barlow", family = "Barlow")

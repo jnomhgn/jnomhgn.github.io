@@ -8,6 +8,7 @@ library(shiny)
 library(truncnorm)
 library(bslib)
 library(showtext)
+library(curl)
 
 
 font_add_google(name = "barlow", family = "Barlow")
