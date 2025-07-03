@@ -91,21 +91,26 @@ server <- function(input, output) {
   })
   
   output$plot <- renderPlot({
-    data()$d %>% ggplot(aes(x=speed.true, y=mean, ymin=lower, ymax=upper, group = as.factor(gradient), col=as.factor(gradient), fill=as.factor(gradient))) + 
-      geom_line(lwd=1) +
-      geom_ribbon(alpha=.5) +
-      scale_color_viridis(name="Gradient", discrete = T) +
-      scale_fill_viridis(name="Gradient", discrete = T) +
-      scale_y_continuous(name = "Estimated w/kg", limits = c(0, 10), breaks = seq(0, 10, by=1)) +
-      scale_x_continuous(name = "Speed in km/h", limits = c(8, 30), breaks = seq(0, 30, by=5)) +
-      theme_linedraw(base_size = 10) +
-      theme(text = element_text(size=rel(5)),
-            plot.title = element_text(size=rel(7), hjust = .5),
-            legend.text = element_text(size=rel(5)),
-            axis.ticks.x = element_blank(),
-            axis.line.x = element_blank(),
-            strip.text.x = element_text(size=rel(5)),
-            strip.text.y = element_text(size=rel(5))) 
+    
+    suppressWarnings({
+      
+      data()$d %>% ggplot(aes(x=speed.true, y=mean, ymin=lower, ymax=upper, group = as.factor(gradient), col=as.factor(gradient), fill=as.factor(gradient))) + 
+        geom_line(lwd=1) +
+        geom_ribbon(alpha=.5) +
+        scale_color_viridis(name="Gradient", discrete = T) +
+        scale_fill_viridis(name="Gradient", discrete = T) +
+        scale_y_continuous(name = "Estimated w/kg", limits = c(0, 10), breaks = seq(0, 10, by=1)) +
+        scale_x_continuous(name = "Speed in km/h", limits = c(8, 30), breaks = seq(0, 30, by=5)) +
+        theme_linedraw(base_size = 10) +
+        theme(text = element_text(size=rel(5)),
+              plot.title = element_text(size=rel(7), hjust = .5),
+              legend.text = element_text(size=rel(5)),
+              axis.ticks.x = element_blank(),
+              axis.line.x = element_blank(),
+              strip.text.x = element_text(size=rel(5)),
+              strip.text.y = element_text(size=rel(5))) 
+      
+    })
     
     
   })

@@ -130,18 +130,23 @@ server <- function(input, output) {
   
   
   output$plot <- renderPlot({
-    data()$plotdata %>% ggplot(aes(x=rider, y=mean, ymin=lower, ymax=upper)) +
-      geom_pointrange(size=1, shape=21, alpha=1, fill=viridis(n=nrow(data()$plotdata), begin = 0, end = 1))+
-      scale_y_continuous(name = "Estimated w/kg", limits = c(4, 9), breaks = seq(0, 10, by=1)) +
-      scale_x_discrete(name = "Rider") +
-      theme_linedraw(base_size = 10) +
-      theme(text = element_text(size=rel(5)),
-            plot.title = element_text(size=rel(7), hjust = .5),
-            legend.text = element_text(size=rel(5)),
-            axis.ticks.x = element_blank(),
-            axis.line.x = element_blank(),
-            strip.text.x = element_text(size=rel(5)),
-            strip.text.y = element_text(size=rel(5)))
+    
+    suppressWarnings({
+      
+      data()$plotdata %>% ggplot(aes(x=rider, y=mean, ymin=lower, ymax=upper)) +
+        geom_pointrange(size=1, shape=21, alpha=1, fill=viridis(n=nrow(data()$plotdata), begin = 0, end = 1))+
+        scale_y_continuous(name = "Estimated w/kg", limits = c(4, 9), breaks = seq(0, 10, by=1)) +
+        scale_x_discrete(name = "Rider") +
+        theme_linedraw(base_size = 10) +
+        theme(text = element_text(size=rel(5)),
+              plot.title = element_text(size=rel(7), hjust = .5),
+              legend.text = element_text(size=rel(5)),
+              axis.ticks.x = element_blank(),
+              axis.line.x = element_blank(),
+              strip.text.x = element_text(size=rel(5)),
+              strip.text.y = element_text(size=rel(5)))
+      
+    })
     
     
   })
