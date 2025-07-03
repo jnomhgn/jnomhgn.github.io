@@ -1,0 +1,59 @@
+---
+title: "Uncertain W/kg"
+description: "Exploring uncertainty in the estimates of pro cyclists’ W/kg."
+author: "Jonathan"
+date: "2025-07-02"
+#date-modified: "2025-06-28"
+categories: [w/kg]
+image: images/tadej-mb.jpg
+---
+
+![](images/tadej-mb.jpg)
+
+© Hugo LUC CC BY-SA 4.0 \<https://creativecommons.org/licenses/by-sa/4.0\>, via Wikimedia Commons
+
+When modeling (pro) cyclists' climbing performances, we have to make a number of assumptions about parameters such as air density, drag coefficient, frontal area, and so on. These assumptions naturally carry some degree of uncertainty---we don't know their true values for sure. As far as I know, however, W/kg estimates are typically reported as single point values, offering no indication of how confident we can be in them. (An exception are some of the estimates published by [Frédéric Portoleau on Chronowatts.com](https://www.chronoswatts.com/) and by [ammattipyöräily](https://bsky.app/profile/ammattipyoraily.bsky.social) ).
+
+Here, I want to interactively explore how uncertainty about the model's parameters affects uncertainty in the estimated W/kg values. Instead of assigning each parameter a single value, we assign it a distribution that reflects our uncertainty. We simply sample from these distributions and "push" the values forwards through the model, resulting in a distribution of estimated power outputs. In Bayesian statistics, this is known as a *prior predictive simulation*. It helps us understand the range of outcomes that are consistent with our assumptions *before* seeing any data.
+
+(I only recently stumbled upon Frédéric Portoleau's website. I think he may actually have done something similar [here](https://www.chronoswatts.com/img/articles/incertitudes_Frederic_Portoleau.pdf), though not I am not sure.)
+
+## A simplified model
+
+To keep things tractable, I adopted a simplified version of the model proposed in [Martin et al. 1998](https://www.researchgate.net/publication/279937184_Validation_of_a_Mathematical_Model_for_Road_Cycling_Power) Martin et al. 1998. (Approachable explanations of this model can be found on [Steve Gribble's power-speed-calculator](https://www.gribble.org/cycling/power_v_speed.html) and in this [article by Antoine Vayer](https://www.cyclisme-dopage.com/puissances/2013-07-19-lemonde-fr.htm).) In this model, the power produce by a cyclist is given by the power needed to overcome aerodynamic drag ($P_{AD}$), rolling resistance ($P_{RR}$), and gravity ($P_G$).
+
+$$
+P = P_{AD} + P_{RR} + P_{G}
+$$
+
+$$
+P_{AD} = \frac{1}{2} *\rho *CdA * v^3
+$$
+
+$$
+P_{RR} = Crr *m *g * cos(\theta) * v
+$$
+
+$$
+P_{G} = m*g*v*sin(\theta) * v
+$$
+
+## Select gradients and speeds
+
+So, how to use the app? For each parameter, you will plug in a defined range. Values for that parameter will then be sampled uniformly from within this specified range. For example, if we set the range of CdA to $CdA_{min} = 0.2$ and $CdA_{max} = 0.3$, CdA values will be sampled equally from anywhere between 0.2 and 0.3. This means that, on average, the sampled values will center around 0.25.
+
+::: iframe-container
+<iframe src="https://01977a19-67e5-ba24-9091-dfa36c52dd2d.share.connect.posit.cloud/" width="100%" height="600" style="border:none;">
+
+</iframe>
+:::
+
+## Custom gradients and speeds
+
+The app below works similarly to the one above, with some key differences. Instead of using fixed values for speed and gradient, you can now enter your own in the 'Data' tab and observe the results. You'll be able to set a central value for the other parameters in the 'Data' tab, and then use a slider to specify the spread around that value, which will determine the uniform distribution's lower and upper limits. For example, if you set a central CdA value of 0.25 for Rider A, and a spread of ±0.05, the uniform distribution for Rider A's CdA will range from 0.20 to 0.30. Similarly, if Rider B has a central CdA of 0.30 with the same ±0.05 spread, their CdA values will be uniformly sampled between 0.25 and 0.35.
+
+::: iframe-container
+<iframe src="https://01977a19-9f10-1f66-44eb-00eb7b2fc61a.share.connect.posit.cloud/" width="100%" height="600" style="border:none;">
+
+</iframe>
+:::
