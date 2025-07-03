@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "W/kg \nYou may – or may not, it may be pretty niche – be familiar with the W/kg calculations of pro cyclists’ climbing performances floating around on the internet. These blog posts are my attempt to explore the models behind these estimates and to provide some interactive tools so you can do the same. If you’re interested, also be sure to check out some of the work by the team behind Lantern Rouge Media, by Frédéric Portoleau, by ammattipyöräily, and by belhill1985.\n\n\n\n\n\n\n\n\n\n\nUncertain W/kg\n\n\n\nw/kg\n\n\n\nExploring uncertainty in the estimates of pro cyclists’ W/kg.\n\n\n\n\n\nJul 2, 2025\n\n\nJonathan\n\n\n\n\n\nNo matching items\n\n\n\n\nStats \nI also want to use this space to share some materials I created as part of my stats teaching. So stay tuned!"
+  },
+  {
+    "objectID": "blog/wkg/priorsims/index.html",
+    "href": "blog/wkg/priorsims/index.html",
+    "title": "Uncertain W/kg",
+    "section": "",
+    "text": "© Hugo LUC CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons\nWhen modeling (pro) cyclists’ climbing performances, we have to make a number of assumptions about parameters such as air density, drag coefficient, frontal area, and so on. These assumptions naturally carry some degree of uncertainty—we don’t know their true values for sure. As far as I know, however, W/kg estimates are typically reported as single point values, offering no indication of how confident we can be in them. (An exception are some of the estimates published by Frédéric Portoleau on Chronowatts.com and by ammattipyöräily ).\nHere, I want to interactively explore how uncertainty about the model’s parameters affects uncertainty in the estimated W/kg values. Instead of assigning each parameter a single value, we assign it a distribution that reflects our uncertainty. We simply sample from these distributions and “push” the values forwards through the model, resulting in a distribution of estimated power outputs. In Bayesian statistics, this is known as a prior predictive simulation. It helps us understand the range of outcomes that are consistent with our assumptions before seeing any data.\n(I only recently stumbled upon Frédéric Portoleau’s website. I think he may actually have done something similar here, though not I am not sure.)"
+  },
+  {
+    "objectID": "blog/wkg/priorsims/index.html#a-simplified-model",
+    "href": "blog/wkg/priorsims/index.html#a-simplified-model",
+    "title": "Uncertain W/kg",
+    "section": "A simplified model",
+    "text": "A simplified model\nTo keep things tractable, I adopted a simplified version of the model proposed in Martin et al. 1998 Martin et al. 1998. (Approachable explanations of this model can be found on Steve Gribble’s power-speed-calculator and in this article by Antoine Vayer.) In this model, the power produce by a cyclist is given by the power needed to overcome aerodynamic drag (\\(P_{AD}\\)), rolling resistance (\\(P_{RR}\\)), and gravity (\\(P_G\\)).\n\\[\nP = P_{AD} + P_{RR} + P_{G}\n\\]\n\\[\nP_{AD} = \\frac{1}{2} *\\rho *CdA * v^3\n\\]\n\\[\nP_{RR} = Crr *m *g * cos(\\theta) * v\n\\]\n\\[\nP_{G} = m*g*v*sin(\\theta) * v\n\\]"
+  },
+  {
+    "objectID": "blog/wkg/priorsims/index.html#select-gradients-and-speeds",
+    "href": "blog/wkg/priorsims/index.html#select-gradients-and-speeds",
+    "title": "Uncertain W/kg",
+    "section": "Select gradients and speeds",
+    "text": "Select gradients and speeds\nSo, how to use the app? For each parameter, you will plug in a defined range. Values for that parameter will then be sampled uniformly from within this specified range. For example, if we set the range of CdA to \\(CdA_{min} = 0.2\\) and \\(CdA_{max} = 0.3\\), CdA values will be sampled equally from anywhere between 0.2 and 0.3. This means that, on average, the sampled values will center around 0.25."
+  },
+  {
+    "objectID": "blog/wkg/priorsims/index.html#custom-gradients-and-speeds",
+    "href": "blog/wkg/priorsims/index.html#custom-gradients-and-speeds",
+    "title": "Uncertain W/kg",
+    "section": "Custom gradients and speeds",
+    "text": "Custom gradients and speeds\nThe app below works similarly to the one above, with some key differences. Instead of using fixed values for speed and gradient, you can now enter your own in the ‘Data’ tab and observe the results. You’ll be able to set a central value for the other parameters in the ‘Data’ tab, and then use a slider to specify the spread around that value, which will determine the uniform distribution’s lower and upper limits. For example, if you set a central CdA value of 0.25 for Rider A, and a spread of ±0.05, the uniform distribution for Rider A’s CdA will range from 0.20 to 0.30. Similarly, if Rider B has a central CdA of 0.30 with the same ±0.05 spread, their CdA values will be uniformly sampled between 0.25 and 0.35."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "jnomhgn",
+    "section": "",
+    "text": "Hi there!  Welcome to my website—a space for sharing my work, side projects, and ideas I’m curious to explore when time allows. It’s also been a fun way for me to experiment with interactive Shiny apps and Quarto websites. I’ll be adding content gradually, so feel free to check back now and then. Stay tuned!"
+  },
+  {
+    "objectID": "index.html#undergoing-construction",
+    "href": "index.html#undergoing-construction",
+    "title": "jnomhgn",
+    "section": "",
+    "text": "Hi there!  Welcome to my website—a space for sharing my work, side projects, and ideas I’m curious to explore when time allows. It’s also been a fun way for me to experiment with interactive Shiny apps and Quarto websites. I’ll be adding content gradually, so feel free to check back now and then. Stay tuned!"
+  }
+]
