@@ -5,3 +5,9 @@ comments: false
 execute: 
   freeze: false
 ---
+
+## {{< fa wrench >}} {{< fa helmet-safety >}} Undergoing construction ...
+
+------------------------------------------------------------------------
+
+Hi there! {{< fa hand-peace >}} Welcome to my website---a space for sharing my work, side projects, and ideas I'm curious to explore when time allows. It's also been a fun way for me to experiment with interactive Shiny apps and Quarto websites. I'll be adding content gradually, so feel free to check back now and then. Stay tuned!

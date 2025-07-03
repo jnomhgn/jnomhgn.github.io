@@ -6,7 +6,19 @@ website:
   navbar:
     background: primary
     search: false
-
+    left:
+      - href: blog.qmd
+        text: Blog
+    right:
+      - icon: github
+        href: https://github.com/
+  page-footer: 
+    right: 
+      - icon: github
+        href: https://github.com
+    center: 
+      - text: This website was built with Quarto
+        href: https://quarto.org
 
 format:
   html:
