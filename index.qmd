@@ -1,0 +1,7 @@
+---
+about:
+  template: jolla
+comments: false
+execute: 
+  freeze: false
+---

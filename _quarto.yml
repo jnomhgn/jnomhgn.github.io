@@ -1,0 +1,17 @@
+project:
+  type: website
+  
+website:
+  title: "jnomhgn"
+  navbar:
+    background: primary
+    search: false
+
+
+format:
+  html:
+    theme: flatly
+
+editor: visual
+
+
