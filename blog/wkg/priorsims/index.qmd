@@ -43,7 +43,7 @@ $$
 So, how to use the app? For each parameter, you will plug in a defined range. Values for that parameter will then be sampled uniformly from within this specified range. For example, if we set the range of CdA to $CdA_{min} = 0.2$ and $CdA_{max} = 0.3$, CdA values will be sampled equally from anywhere between 0.2 and 0.3. This means that, on average, the sampled values will center around 0.25.
 
 ::: iframe-container
-<iframe src="https://01977a19-67e5-ba24-9091-dfa36c52dd2d.share.connect.posit.cloud/" width="100%" height="600" style="border:none;">
+<iframe src="https://0197d1b0-f4b5-7c03-93e2-2bf9dccd6368.share.connect.posit.cloud/" width="100%" height="600" style="border:none;">
 
 </iframe>
 :::
@@ -53,7 +53,7 @@ So, how to use the app? For each parameter, you will plug in a defined range. Va
 The app below works similarly to the one above, with some key differences. Instead of using fixed values for speed and gradient, you can now enter your own in the 'Data' tab and observe the results. You'll be able to set a central value for the other parameters in the 'Data' tab, and then use a slider to specify the spread around that value, which will determine the uniform distribution's lower and upper limits. For example, if you set a central CdA value of 0.25 for Rider A, and a spread of ±0.05, the uniform distribution for Rider A's CdA will range from 0.20 to 0.30. Similarly, if Rider B has a central CdA of 0.30 with the same ±0.05 spread, their CdA values will be uniformly sampled between 0.25 and 0.35.
 
 ::: iframe-container
-<iframe src="https://01977a19-9f10-1f66-44eb-00eb7b2fc61a.share.connect.posit.cloud/" width="100%" height="600" style="border:none;">
+<iframe src="https://0197d1b1-d981-fb12-ff4c-f5c8e7c590e8.share.connect.posit.cloud/" width="100%" height="600" style="border:none;">
 
 </iframe>
 :::
