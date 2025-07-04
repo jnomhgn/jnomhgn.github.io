@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Build and deploy GitHub pages.
 
 # Controls when the workflow will run
 on:
@@ -34,10 +34,10 @@ jobs:
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render site
+      - name: Render Quarto
         run: quarto render
 
-      - name: Setup Pages
+      - name: Setup pages
         uses: actions/configure-pages@v3
 
       - name: Upload artifact
