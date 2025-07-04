@@ -102,7 +102,7 @@ server <- function(input, output) {
         scale_y_continuous(name = "Estimated w/kg", limits = c(0, 10), breaks = seq(0, 10, by=1)) +
         scale_x_continuous(name = "Speed in km/h", limits = c(8, 30), breaks = seq(0, 30, by=5)) +
         theme_linedraw(base_size = 10) +
-        theme(text = element_text(size=rel(5)),
+        theme(text = element_text(size=rel(5), family = "Barlow"),
               plot.title = element_text(size=rel(7), hjust = .5),
               legend.text = element_text(size=rel(5)),
               axis.ticks.x = element_blank(),

@@ -138,7 +138,7 @@ server <- function(input, output) {
         scale_y_continuous(name = "Estimated w/kg", limits = c(4, 9), breaks = seq(0, 10, by=1)) +
         scale_x_discrete(name = "Rider") +
         theme_linedraw(base_size = 10) +
-        theme(text = element_text(size=rel(5)),
+        theme(text = element_text(size=rel(5), family = "Barlow"),
               plot.title = element_text(size=rel(7), hjust = .5),
               legend.text = element_text(size=rel(5)),
               axis.ticks.x = element_blank(),
