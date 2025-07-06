@@ -3,9 +3,10 @@ project:
   
 website:
   title: "jnomhgn"
+  site-url: https://jnomhgn.github.io
   navbar:
     background: primary
-    search: false
+    search: true
     left:
       - href: blog.qmd
         text: Blog
@@ -22,6 +23,7 @@ website:
 
 format:
   html:
+    include-in-header: header.html
     theme: light.scss
     css: styles.css
     toc: true
@@ -36,3 +38,6 @@ format:
         category: "Announcements"
 
 editor: visual
+
+resources: 
+  - robots.txt
